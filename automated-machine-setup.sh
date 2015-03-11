@@ -8,6 +8,9 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 . homebrew-setup.sh
 
 installHomebrew
+verifyHomebrewConfig
+installHomebrewPackages
+
 exit
 
 # config config cron jobs
