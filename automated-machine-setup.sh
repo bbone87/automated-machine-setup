@@ -1,22 +1,13 @@
 #!/bin/bash
 
-# colors
-red='\033[0;31m'
-endColor='\033[0m'
+# move to directory where this file is located
+cd "$( dirname "${BASH_SOURCE[0]}" )"
 
-# install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# import scripts
+. logger.sh
+. homebrew-setup.sh
 
-# install homebrew packages
-while read line
-do
-	brew install "$line";
-done < "config/brew-packages.txt"
-
-# install homebrew casks (applications)
-while read line
-do
-	brew cask install "$line";
-done < "config/brew-casks.txt"
+installHomebrew
+exit
 
 # config config cron jobs
